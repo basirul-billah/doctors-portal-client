@@ -18,4 +18,11 @@ module.exports = {
     ],
   },
   plugins: [require("daisyui")],
+  theme: {
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/src/assets/images/chair.png')",
+      }
+    }
+  }
 }
