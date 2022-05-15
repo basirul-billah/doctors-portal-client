@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './Page/Shared/Navbar';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from './Page/Home/Home';
 import About from './Page/About/About';
 
