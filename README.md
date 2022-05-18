@@ -9,3 +9,5 @@
 * Tailwind CSS
 * Daisy UI Component Library
 * React Day Picker
+* Firebase Authentication
+* React Firebase Hooks
