@@ -19,7 +19,7 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center mt-5'>
                         <input type="text" value={format(date, 'PP')} disabled className="input input-bordered w-full max-w-xs" />
                         {
-                            <select name="slot" className="select select-bordered w-full max-w-xs">
+                            <select name="slot" className="select select-bordered w-full max-w-xs ">
                                 {
                                     slots.map(slot => <option key={_id} value={slot}>{slot}</option>)
                                 }
