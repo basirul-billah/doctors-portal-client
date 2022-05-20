@@ -11,3 +11,4 @@
 * React Day Picker
 * Firebase Authentication
 * React Firebase Hooks
+* React Hook Form
