@@ -24,7 +24,7 @@ const Navbar = () => {
         <li className='font-normal text-base'>{user ?
             <button
                 onClick={logout}
-                className="btn btn-ghost text-base font-normal normal-case">Sign Out</button>
+                class="btn btn-ghost text-base font-normal normal-case">Sign Out</button>
             : <Link to="/login" element={<Login></Login>}>Login</Link>}</li>
     </>;
 
