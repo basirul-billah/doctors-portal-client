@@ -9,7 +9,7 @@ import Login from '../Login/Login';
 
 const Navbar = () => {
 
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     const logout = () => {
         signOut(auth);
@@ -24,7 +24,7 @@ const Navbar = () => {
         <li className='font-normal text-base'>{user ?
             <button
                 onClick={logout}
-                class="btn btn-ghost text-base font-normal normal-case">Sign Out</button>
+                className="btn btn-ghost text-base font-normal normal-case">Sign Out</button>
             : <Link to="/login" element={<Login></Login>}>Login</Link>}</li>
     </>;
 

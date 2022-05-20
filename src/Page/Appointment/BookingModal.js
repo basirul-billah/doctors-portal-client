@@ -1,8 +1,12 @@
 import { format } from 'date-fns';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 import React from 'react';
 
 const BookingModal = ({ date, treatment, setTreatment }) => {
     const { _id, name, slots } = treatment;
+    const [user] = useAuthState(auth);
+
     const handleBooking = e => {
         e.preventDefault();
         const slot = e.target.slot.value;
@@ -21,12 +25,15 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
                         {
                             <select name="slot" className="select select-bordered w-full max-w-xs">
                                 {
-                                    slots.map(slot => <option key={_id} value={slot}>{slot}</option>)
+                                    slots.map((slot, index) => <option
+                                        key={index}
+                                        value={slot}
+                                    >{slot}</option>)
                                 }
                             </select>
                         }
-                        <input type="text" name="name" placeholder="Name" className="input input-bordered w-full max-w-xs" />
-                        <input type="text" name="email" placeholder="Email" className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name="name" disabled value={user?.displayName || ''} placeholder="Name" className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name="email" disabled value={user?.email || ''} placeholder="Email" className="input input-bordered w-full max-w-xs" />
                         <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
                         <input type="submit" value="submit" className="btn btn-accent w-full max-w-xs" />
                     </form>
