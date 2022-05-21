@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import About from '../About/About';
+import Dashboard from '../Dashboard/Dashboard';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
 
@@ -16,12 +17,15 @@ const Navbar = () => {
     };
 
     const menuItems = <>
-        <li className='font-normal text-base'><Link to="/home" element={<Home></Home>}>Home</Link></li>
-        <li className='font-normal text-base'><Link to="/about" element={<About></About>}>About</Link></li>
-        <li className='font-normal text-base'><Link to="/appointment" element={<About></About>}>Appointment</Link></li>
-        <li className='font-normal text-base'><Link to="/contact" element={<About></About>}>Contact Us</Link></li>
-        <li className='font-normal text-base'><Link to="/reviews" element={<About></About>}>Reviews</Link></li>
-        <li className='font-normal text-base'>{user ?
+        <li><Link to="/home" element={<Home></Home>}>Home</Link></li>
+        <li><Link to="/appointment" element={<About></About>}>Appointment</Link></li>
+        <li><Link to="/reviews" element={<About></About>}>Reviews</Link></li>
+        <li><Link to="/contact" element={<About></About>}>Contact Us</Link></li>
+        <li><Link to="/about" element={<About></About>}>About</Link></li>
+        {
+            user && <li><Link to="/dashboard" element={<Dashboard></Dashboard>}>Dashboard</Link></li>
+        }
+        <li>{user ?
             <button
                 onClick={logout}
                 className="btn btn-ghost text-base font-normal normal-case">Sign Out</button>
@@ -41,7 +45,7 @@ const Navbar = () => {
                 </div>
                 <Link className='font-normal text-lg' to='/' element={<Home></Home>}>Doctors Portal</Link>
             </div>
-            <div className="navbar-end hidden lg:flex">
+            <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
