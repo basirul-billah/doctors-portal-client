@@ -12,3 +12,5 @@
 * Firebase Authentication
 * React Firebase Hooks
 * React Hook Form
+* React Toastify
+* React Query
